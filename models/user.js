@@ -32,7 +32,6 @@ const User = sequelize.define(
 		},
 		location: {
 			type: DataTypes.STRING,
-			allowNull: false,
 		},
 		orders: {
 			type: DataTypes.ARRAY(DataTypes.INTEGER),

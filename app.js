@@ -4,18 +4,13 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const app = express();
 const { sequelize, connectToDatabase } = require('./utils/databaseUtils');
+const cors = require('cors');
 const usersRoutes = require('./routes/users');
 
 connectToDatabase(sequelize);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
-const cors = require('cors');
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
 app.use(cors());
 
 app.use('/users', usersRoutes);
