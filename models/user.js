@@ -33,13 +33,13 @@ const User = sequelize.define(
 		location: {
 			type: DataTypes.STRING,
 		},
-		orders: {
-			type: DataTypes.ARRAY(DataTypes.INTEGER),
-			references: {
-				model: Bar,
-				key: 'id',
-			},
-		},
+		// orders: {
+		// 	type: DataTypes.ARRAY(DataTypes.INTEGER),
+		// 	references: {
+		// 		model: Bar,
+		// 		key: 'id',
+		// 	},
+		// },
 	},
 	{
 		sequelize, // We need to pass the connection instance
