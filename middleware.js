@@ -18,3 +18,9 @@ module.exports.verifyToken = (req, res, next) => {
 		next();
 	});
 };
+
+module.exports.catchAsync = func => {
+    return (req, res, next) => {
+        func(req, res, next).catch(next);
+    }
+}

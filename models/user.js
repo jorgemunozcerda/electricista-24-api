@@ -5,13 +5,18 @@ const Order = require('./order');
 const User = sequelize.define(
 	'User',
 	{
-		id: { type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true },
+		password: {
+			type: DataTypes.STRING,
+		},
+		username: {
+			type: DataTypes.STRING,
+		},
 		name: {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
 		phone: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.STRING,
 			allowNull: false,
 		},
 		streetAndNumber: {
@@ -36,15 +41,16 @@ const User = sequelize.define(
 		// orders: {
 		// 	type: DataTypes.ARRAY(DataTypes.INTEGER),
 		// 	references: {
-		// 		model: Bar,
+		// 		model: Order,
 		// 		key: 'id',
 		// 	},
 		// },
+		isAdmin: {
+			type: DataTypes.BOOLEAN,
+			allowNull: false,
+		},
 	},
-	{
-		sequelize, // We need to pass the connection instance
-		modelName: 'User', // We need to choose the model name
-	}
+	{}
 );
 
 module.exports = User;
